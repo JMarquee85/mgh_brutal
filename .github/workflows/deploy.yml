@@ -23,7 +23,7 @@ jobs:
       # - name: install astro
       #   run: npm install astro
       # - name: npm build
-        run: npm run build
+      #  run: npm run build
       - name: Install, build, and upload your site
         uses: withastro/action@v0
       # - name: pnpm setup
