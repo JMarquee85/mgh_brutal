@@ -1,0 +1,83 @@
+---
+import Layout from '@layouts/Default.astro';
+import RecentBlogPosts from '@components/generic/RecentBlogPosts.astro';
+import MobileSocials from '@components/home/MobileSocials.astro';
+import { Pill } from '@eliancodes/brutal-ui';
+import { Button } from '@eliancodes/brutal-ui';
+import { Card } from '@eliancodes/brutal-ui';
+
+const builtWith = [
+  { name: 'X-R-A-Y', url: 'https://xraylitmag.com/' },
+  { name: 'Ghost City Review', url: 'https://ghostcitypress.com/' },
+  {
+    name: 'Peach Mag',
+    url: 'https://www.peachmgzn.com/',
+  }
+];
+---
+
+<Layout
+  title='Home'
+  pageTitle='Marisha Hicks | Author'
+  description='Marisha Hicks is an author based in El Paso, TX.'
+>
+  <main class='bg-pink p-6'>
+    <MobileSocials />
+    <section id='about' class='grid md:grid-cols-8 gap-8 mt-4'>
+      <h2 class='hidden'>About Marisha</h2>
+      <div class='col-span-4'>
+        <Card>
+          <div class='flex flex-col justify-between items-start gap-4'>
+            <p class='mt-4 outfit text-2xl md:text-5xl lg:text-7xl'>
+              Marisha Hicks
+            </p>
+            <p class='mt-2 outfit text-xl md:text-3xl lg:text-5xl'>
+              An author based in El Paso, TX.
+            </p>
+            <Button target={'_self'} href='/publications/'>
+              Go to published works &rarr;
+            </Button>
+          </div>
+        </Card>
+      </div>
+      <p>
+      <div class='col-span-5'>
+        <Card>
+          <h2 class='text-2xl md:text-4xl lg:text-6xl mb-8 dm-serif'>
+            Published in
+          </h2>
+          <ul class='flex gap-4 flex-wrap'>
+            {
+              builtWith.map((item) => (
+                <li>
+                  <Pill>
+                    <a
+                      class='sanchez'
+                      href={item.url}
+                      target='_blank'
+                      title={`Go to ${item.name}`}
+                    >
+                      {item.name}
+                    </a>
+                  </Pill>
+                </li>
+              ))
+            }
+          </ul>
+        </Card>
+      </div>
+      </p>
+      <!-- <div class='col-span-2'>
+        <Card>
+          <h2 class='text-2x1 md:text-4x1 lg:text-6xl mb-4 dm-serif'>
+            
+          </h2>
+          <p class='poppins'>
+            <strong>Marisha Hicks</strong> is a writer originally from El Paso, TX. She is published in literary magazines such as X-R-A-Y, Ghost City Review, and Peach Mag.
+          </p>
+        </Card>
+      </div> -->
+    </section>
+    <!-- <RecentBlogPosts /> -->
+  </main>
+</Layout>
